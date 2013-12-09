@@ -24,7 +24,6 @@ $(function() {
 	messageContainer = $('#messageInput');
 	submitButton = $("#submit");
 	bindButton();
-	window.setInterval(time, 1000*10);
 	$("#alertPseudo").hide();
     if(localStorage['pseudo'] != null)
     {
@@ -79,7 +78,6 @@ function addMessage(msg, pseudo, date, self) {
 	else var classDiv = "row message";
     var newDiv = $('<div class="'+classDiv+'"><p class="infos"><span class="pseudo">'+pseudo+'</span>, <time class="date" title="'+date+'">'+date+'</time></p><p>' + msg + '</p></div>');
 	$("#chatEntries").append(newDiv);
-	time();
     $('#chatEntries').slimscroll({ scrollTo: $('#chatEntries').height() })
 }
 
@@ -112,11 +110,6 @@ function setPseudo() {
 			}
 		})
 	}
-}
-function time() {
-	$("time").each(function(){
-		$(this).text($.timeago($(this).attr('title')));
-	});
 }
 function setHeight() {
 	$(".slimScrollDiv").height('603');
